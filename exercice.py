@@ -2,41 +2,50 @@
 # -*- coding: utf-8 -*-
 import numpy
 
-#1
-def order(values: list = None) -> list:
-    if values is None:
-        # TODO: demander les valeurs ici
-        valeurs = input("Entrez 10 valeurs")
-        print(valeurs)
+# #1
+# def order(values: list = None) -> list:
+#     if values is None:
+#         # TODO: demander les valeurs ici
+#         valeurs = input("Entrez 10 valeurs:\n")
+#         print(valeurs)
+#
+#         liste = valeurs.split()
+#         liste_modifiee = liste.sort()
+#
+#     return liste_modifiee
 
-        liste = valeurs.split()
-        liste_modifiee = liste.sort()
+#2
+def anagrams(words: list = None) -> bool:
+    if words is None:
+        # TODO: demander les mots ici
+        mot_1 = list(input("Entrez un mot:\n"))
+        print(mot_1)
+        mot_2 = list(input("Entrez un autre mot:\n"))
+        print(mot_2)
 
-    return liste_modifiee
+        mot_1.sort()
+        mot_2.sort()
 
-# #2
-# def anagrams(words: list = None) -> bool:
-#     if words is None:
-#         # TODO: demander les mots ici
-#         mot_1 = input("Entrez un mot")
-#         print(mot_1)
-#         mot_2 = input("Entrez un autre mot")
-#         print(mot_2)
-#
-#         list_mot1 = []
-#         for letter in mot_1:
-#             liste_mot1.append()
-#             print(liste_mot1.reverse())
-#
-#         from collections import deque
-#
-#         mot_1_mod = deque(mot_1)
-#         for i in range(len(mot_1_mod)):
-#             print(mot_1_mod.append(mot_1_mod.popleft()))
-#
-#
-#     return False
-#
+        if mot_1 == mot_2:
+            print("Les mots sont des anagrammes")
+            return True
+        print("Les mots ne sont pas des anagrammes")
+        return False
+
+        # list_mots = [mot_1, mot_2]
+        # for letter in mot_1:
+        #     liste_mot1.append()
+        #     print(liste_mot1.reverse())
+        #
+        # from collections import deque
+        #
+        # mot_1_mod = deque(mot_1)
+        # for i in range(len(mot_1_mod)):
+        #     print(mot_1_mod.append(mot_1_mod.popleft()))
+
+
+    return False
+
 # #3
 # def contains_doubles(items: list) -> bool:
 #
@@ -80,11 +89,11 @@ def order(values: list = None) -> list:
 
 
 def main() -> None:
-    print(f"On essaie d'ordonner les valeurs...")
-    order()
+    # print(f"On essaie d'ordonner les valeurs...")
+    # print(order())
 
-    # print(f"On vérifie les anagrammes...")
-    # anagrams()
+    print(f"On vérifie les anagrammes...")
+    anagrams()
     #
     # my_list = [3, 3, 5, 6, 1, 1]
     # print(f"Ma liste contient-elle des doublons? {contains_doubles(my_list)}")
