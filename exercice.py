@@ -3,15 +3,15 @@
 import numpy
 
 # #1
-def order(values: list = None) -> list:
-    if values is None:
-         # TODO: demander les valeurs ici
-        values = []
-        while len(values) < 10:
-             values.append(input("Entrez une valeur:\n"))
-        values.sort()
-
-    return values
+# def order(values: list = None) -> list:
+#     if values is None:
+#          # TODO: demander les valeurs ici
+#         values = []
+#         while len(values) < 10:
+#              values.append(input("Entrez une valeur:\n"))
+#         values.sort()
+#
+#     return values
 
 
 
@@ -35,7 +35,7 @@ def order(values: list = None) -> list:
 #         print("Les mot ne sont pas des anagrammes")
 #         return False
 #
-#
+
 #3
 # def contains_doubles(items: list) -> bool:
 #
@@ -80,28 +80,35 @@ def order(values: list = None) -> list:
 #
 #     return occurences
 #
-# #6
-# def get_recipes():
-#     # TODO: Demander le nom d'une recette, puis ses ingredients et enregistrer dans une structure de données
-#
-#     recette = input("Entrez un nom de recette:\n")
-#     ingredients = []
-#     for i in range(6):
-#         ingredients.append(input("Entrez un ingrédient:\n"))
-#     livre_recettes = {recette: ingredients}
-#     print(livre_recettes)
-#
-# #6
-# def print_recipe(ingredients) -> None:
-#     # TODO: Demander le nom d'une recette, puis l'afficher si elle existe
-#     recette_req = input("Entrez le nom d'une recette:\n")
-#     if recette_req in livre_recettes:
-#         print("Les ingrédients de", recette_req, "sont: \n", livre_recettes[recette])
+#6
+def get_recipes():
+    # TODO: Demander le nom d'une recette, puis ses ingredients et enregistrer dans une structure de données --> dictionnaire
+    # recette -> clé
+    # ingrédients -> valeurs
+
+    recipes = input("Quel est le nom de votre recette?:\n")
+    ingredients = input("Entrez les ingrédients de la recette séparés d'une virgule.\n").split(',')
+
+    livre_recettes = {recipes: ingredients}
+    print(livre_recettes)
+
+#6
+def print_recipe(ingredients) -> None:
+    # TODO: Demander le nom d'une recette, puis l'afficher si elle existe
+    # Input : entrez un nom de recette
+    # Condition Si recette in dict -> print(dict.values)
+    # Ingredients est un dictionnaire contenant toutes les recettes et les ingrédients
+
+    recette_req = input("Entrez le nom d'une recette:\n")
+    if recette_req in ingredients:
+        print("Les ingrédients de" + recette_req + "sont: \n" + ingredients[recette_req])
+    else:
+        print("Cette recette n'est pas dans le livre de recettes.")
 
 
 def main() -> None:
-    print(f"On essaie d'ordonner les valeurs...")
-    print(order())
+    # print(f"On essaie d'ordonner les valeurs...")
+    # print(order())
 
     # print(f"On vérifie les anagrammes...")
     # print(anagrams())
@@ -116,11 +123,11 @@ def main() -> None:
     # sentence = "bonjour, je suis une phrase. je suis compose de beaucoup de lettre. oui oui"
     # frequence(sentence)
     #
-    # print("On enregistre les recettes...")
-    # recipes = get_recipes()
-    #
-    # print("On affiche une recette au choix...")
-    # print_recipe(recipes)
+    print("On enregistre les recettes...")
+    recipes = get_recipes()
+
+    print("On affiche une recette au choix...")
+    print_recipe(recipes)
 
 
 if __name__ == '__main__':
